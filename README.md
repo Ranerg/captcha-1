@@ -8,7 +8,7 @@ SparuiCaptcha for Laravel 4
 composer.json下加入
 ```bash
 "require": {
-	"sparui/captcha": "*"
+	"sparui/captcha": "dev-master"
 },
 ```
 
