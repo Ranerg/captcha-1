@@ -11,6 +11,19 @@ class CaptchaServiceProvider extends ServiceProvider {
 	 */
 	protected $defer = false;
 
+    /**
+     * Bootstrap the application events.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->package('sparui/captcha', 'captcha');
+
+        include __DIR__.'/../../routes.php';
+        include __DIR__.'/../../validation.php';
+    }
+
 	/**
 	 * Register the service provider.
 	 *
@@ -18,7 +31,9 @@ class CaptchaServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//
+		$this->app->bind('captcha',function(){
+            return Captcha::instance();
+        });
 	}
 
 	/**
